@@ -29,7 +29,7 @@ export default function Scene() {
 		<>
 			<fog attach="fog" args={['white', 0, 100]}/>
 			<gridHelper args={[200, 200, 0x110000]}/>
-			{/*<ambientLight intensity={0.05}/>*/}
+			<ambientLight intensity={0.05}/>
 			{/*<spotLight position={[2.5, 0.5, 0]} color="pink" castShadow="true" angle="270" distance="10"/>*/}
 			<Light position={[- 4, 2, - 4]} color="green"/>
 			<Light position={[- 3, 2, - 1]} color="blue"/>
@@ -44,7 +44,7 @@ export default function Scene() {
 			{/*<Box position={[1.2, 0, 0]}/>*/}
 
 			<Wall size={{x: 0.1, y: 2.3, z: 5}} position={{x: - 1, z: - 1}}/>
-			<Wall size={{x: 0.1, y: 2.3, z: 5}} position={{x: 2, z: 1}}/>
+			<Wall size={{x: 0.1, y: 2.3, z: 5}} position={{x: 1, z: 1}}/>
 			<Item size={{x: 1, y: .4, z: 2}} position={{x: -2.6, z: - 3}}/>
 			<Item size={{x: .5, y: .5, z: 3}} position={{x: -4.6, z: - 3}}/>
 			<Item size={{x: .05, y: 1, z: 1}} position={{x: -4.7, z: - 3}}/>
@@ -68,6 +68,7 @@ export default function Scene() {
 			<Item size={{x: 0.3, y: 0.8, z: 0.3}} position={{x: 3.5, z: - 2.4}}/>
 			<Item size={{x: 0.3, y: 0.8, z: 0.3}} position={{x: 3, z: - 2.4}}/>
 			<Item size={{x: 2.3, y: 1, z: 0.5}} position={{x: 4, z: - 3}}/>
+
 			<Light position={[4, 2, - 4]} color="white"/>
 
 			{/*<pointLight ref={specialLightRef} position={[0, 2, - 4]} color="yellow" distance={3} castShadow="true"/>*/}
@@ -101,14 +102,14 @@ function Wall({size = {y: 1, z: 2}, position = {x: 0, z: 0}}) {
 	return (
 		<mesh receiveShadow position={[position.x, y, position.z]} castShadow>
 			<boxGeometry args={[size.x, size.y, size.z]}/>
-			<meshStandardMaterial color="#999"/>
+			<meshStandardMaterial color="#bbb"/>
 		</mesh>
 	)
 }
 
 function Light(props) {
 	return (
-		<pointLight key={Math.random()} {...props}  castShadow="true" distance="5" intensity={1}/>
+		<pointLight key={Math.random()} {...props}  castShadow="true" distance="7" intensity={1}/>
 	);
 }
 
